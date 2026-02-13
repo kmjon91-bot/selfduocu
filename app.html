@@ -6,6 +6,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600&display=swap" rel="stylesheet">
   <title>AI 자소서: 당신의 커리어를 한 단계 위로</title>
   <link href='/style.css' rel='stylesheet'>
+  <style>
+    .form-notice {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 15px;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -20,12 +28,16 @@
           <input type="file" id="resume-file" name="resumeFile" accept=".pdf,.doc,.docx,.hwp" required>
         </div>
         <div class="form-group">
-          <label for="user-email">이메일 (선택 사항):</label>
-          <input type="email" id="user-email" name="userEmail" placeholder="분석 결과를 받을 이메일을 입력하세요">
+          <label for="user-email">이메일 (필수 사항):</label>
+          <input type="email" id="user-email" name="userEmail" placeholder="분석 결과를 받을 이메일을 입력하세요" required>
         </div>
         <button type="submit">분석 시작하기</button>
       </form>
       <div id="message-area" role="status" aria-live="polite"></div>
+      <p class="form-notice">
+        간단한 점검 의견이 회신됩니다. 플랫폼 상위 1% 전문가가 직접 점검합니다.<br>
+        <b>개인정보 안내:</b> 제출 전, 자소서의 민감한 개인정보(주민번호, 주소 등)는 삭제해주세요. 제출된 파일은 분석 후 즉시 파기되며 별도로 저장되지 않습니다.
+      </p>
     </section>
   </main>
   <script defer type="text/javascript" src="/main.js"></script>
