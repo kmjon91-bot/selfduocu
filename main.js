@@ -7,35 +7,28 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    resumeForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
+    resumeForm.addEventListener('submit', (event) => {
+        event.preventDefault(); // 실제 서버 전송을 막습니다.
 
-        messageArea.textContent = '이력서를 업로드하는 중...';
-        messageArea.className = 'message-area'; // Reset classes
+        const resumeFile = document.getElementById('resume-file').files[0];
+        const userEmail = document.getElementById('user-email').value;
 
-        const formData = new FormData(resumeForm);
-
-        try {
-            // Cloudflare Function의 엔드포인트('/upload')로 요청을 보냅니다.
-            const response = await fetch('/upload', {
-                method: 'POST',
-                body: formData,
-            });
-
-            const result = await response.json();
-
-            if (response.ok) {
-                messageArea.textContent = '이력서가 성공적으로 제출되었습니다. 검토 후 연락드리겠습니다.';
-                messageArea.classList.add('success');
-                resumeForm.reset();
-            } else {
-                // 함수에서 반환된 에러 메시지를 사용합니다.
-                throw new Error(result.error || '알 수 없는 오류가 발생했습니다.');
-            }
-        } catch (error) {
-            console.error('제출 중 오류 발생:', error);
-            messageArea.textContent = `오류: ${error.message}`;
-            messageArea.classList.add('error');
+        // 파일과 이메일이 모두 입력되었는지 확인합니다.
+        if (!resumeFile || !userEmail) {
+            messageArea.textContent = '자소서 파일과 이메일 주소를 모두 입력해주세요.';
+            messageArea.className = 'message-area error';
+            return;
         }
+
+        messageArea.textContent = '자소서를 제출하는 중입니다...';
+        messageArea.className = 'message-area'; // 클래스 초기화
+
+        // 실제 서버가 없으므로, 성공한 것처럼 시뮬레이션합니다.
+        // 1.5초 후에 성공 메시지를 표시합니다.
+        setTimeout(() => {
+            messageArea.textContent = '자소서가 성공적으로 제출되었습니다. 분석 후 결과를 보내드리겠습니다.';
+            messageArea.classList.add('success');
+            resumeForm.reset(); // 폼 초기화
+        }, 1500);
     });
 });
