@@ -1,7 +1,6 @@
 import { Resend } from 'resend';
 
-// Resend 클라이언트 초기화 (API 키는 환경 변수에서 가져오는 것이 가장 안전합니다)
-// 일단은 직접 키를 사용하지만, 나중에 Cloudflare 설정으로 옮겨 더 안전하게 만들 수 있습니다.
+// Resend 클라이언트 초기화
 const resend = new Resend('re_Ud4GyioG_vTTr3KHQVTEtj9tEMNyWCx6h');
 
 /**
@@ -20,13 +19,12 @@ export async function onRequestPost(context) {
       });
     }
 
-    // 파일 내용을 읽어서 Base64로 인코딩합니다. (이메일에 첨부하기 위해)
     const fileBuffer = await resumeFile.arrayBuffer();
     const fileBase64 = btoa(String.fromCharCode(...new Uint8Array(fileBuffer)));
 
     // --- 1. 관리자에게 알림 이메일 발송 ---
     await resend.emails.send({
-      from: 'Self-DUO-CU <onboarding@resend.dev>', // Resend 기본 주소
+      from: 'Self-DUO-CU <lawlife.ucg@gmail.com>', // 인증된 주소로 변경
       to: ['lawlife.ucg@gmail.com'], // 개발자님 이메일 주소
       subject: `[Self-DUO-CU] 새로운 자소서가 도착했습니다! (${userEmail})`,
       html: `
