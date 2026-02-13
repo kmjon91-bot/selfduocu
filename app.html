@@ -4,26 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600&display=swap" rel="stylesheet">
-  <title>이력서 검토 서비스</title>
+  <title>AI 자소서: 당신의 커리어를 한 단계 위로</title>
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
   <header>
-    <h1>이력서 검토 서비스</h1>
+    <h1>AI 자소서: 당신의 커리어를 한 단계 위로</h1>
   </header>
   <main>
     <section id="submission-form">
-      <h2>이력서 업로드</h2>
+      <h2>자소서 업로드 및 분석</h2>
       <form id="resume-form" enctype="multipart/form-data">
         <div class="form-group">
-          <label for="resume-file">이력서 파일 (PDF, DOCX, HWP):</label>
+          <label for="resume-file">분석할 자소서 파일을 올려주세요 (PDF, DOCX, HWP):</label>
           <input type="file" id="resume-file" name="resumeFile" accept=".pdf,.doc,.docx,.hwp" required>
         </div>
         <div class="form-group">
           <label for="user-email">이메일 (선택 사항):</label>
-          <input type="email" id="user-email" name="userEmail" placeholder="피드백을 받을 이메일을 입력하세요">
+          <input type="email" id="user-email" name="userEmail" placeholder="분석 결과를 받을 이메일을 입력하세요">
         </div>
-        <button type="submit">이력서 제출</button>
+        <button type="submit">분석 시작하기</button>
       </form>
       <div id="message-area" role="status" aria-live="polite"></div>
     </section>
