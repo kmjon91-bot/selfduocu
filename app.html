@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>이력서 검토 서비스</title>
+  <link href='/style.css' rel='stylesheet'>
+</head>
+<body>
+  <header>
+    <h1>이력서 검토 서비스</h1>
+  </header>
+  <main>
+    <section id="submission-form">
+      <h2>이력서 업로드</h2>
+      <form id="resume-form" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="resume-file">이력서 파일 (PDF, DOCX, HWP):</label>
+          <input type="file" id="resume-file" name="resumeFile" accept=".pdf,.doc,.docx,.hwp" required>
+        </div>
+        <div class="form-group">
+          <label for="user-email">이메일 (선택 사항):</label>
+          <input type="email" id="user-email" name="userEmail" placeholder="피드백을 받을 이메일을 입력하세요">
+        </div>
+        <button type="submit">이력서 제출</button>
+      </form>
+      <div id="message-area" role="status" aria-live="polite"></div>
+    </section>
+  </main>
+  <script defer type="text/javascript" src="/main.js"></script>
+</body>
+</html>
