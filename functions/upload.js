@@ -40,7 +40,7 @@ export async function onRequestPost(context) {
         const emailData = {
             admin: {
                 from: 'Self-DUO-CU <onboarding@resend.dev>',
-                to: ['lawlife.ucg@gmail.com'],
+                to: ['kmjon91@gmail.com'], // <--- 여기를 수정했습니다!
                 subject: `[Self-DUO-CU] 새로운 자소서 도착: ${userEmail}`,
                 html: `<p>제출자: ${userEmail}</p>`,
                 attachments: [{ filename: resumeFile.name, content: fileBase64 }],
@@ -48,7 +48,7 @@ export async function onRequestPost(context) {
             user: {
                 from: 'Self-DUO-CU <onboarding@resend.dev>',
                 to: [userEmail],
-                reply_to: 'lawlife.ucg@gmail.com',
+                reply_to: 'kmjon91@gmail.com', // <--- 여기도 수정했습니다!
                 subject: '[Self-DUO-CU] 자소서가 성공적으로 접수되었습니다.',
                 html: `<p>제출해주신 자소서는 성공적으로 접수되었습니다. 곧 회신 드리겠습니다.</p>`,
             }
