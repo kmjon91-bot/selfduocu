@@ -25,7 +25,7 @@
   - **호스팅:** Cloudflare Pages를 통해 정적 파일을 호스팅합니다.
 
 - **백엔드 (서버리스):**
-  - **Cloudflare Functions (`functions/upload.js`):** `app.html`에서 제출된 자기소개서 내용과 이력서 파일을 받아 관리자에게 이메일로 전송하는 서버리스 함수입니다.
+  - **Cloudflare Functions (`api/upload.js`):** `app.html`에서 제출된 자기소개서 내용과 이력서 파일을 받아 관리자에게 이메일로 전송하는 서버리스 함수입니다.
   - **이메일 전송:** SendGrid API를 사용하여 이메일을 발송합니다. API 키와 같은 민감 정보는 Cloudflare 환경 변수를 통해 안전하게 관리됩니다.
 
 ## 4. 파일 구조
@@ -34,7 +34,7 @@
 - `app.html`: 자기소개서 입력 및 파일 업로드 폼이 있는 메인 애플리케이션 페이지.
 - `style.css`: 애플리케이션의 전반적인 스타일과 디자인을 정의하는 CSS 파일.
 - `main.js`: `app.html`의 사용자 인터랙션과 파일 업로드 로직을 처리하는 JavaScript 파일.
-- `functions/upload.js`: 이력서 제출 데이터를 받아 이메일을 전송하는 Cloudflare Function.
+- `api/upload.js`: 이력서 제출 데이터를 받아 이메일을 전송하는 Cloudflare Function.
 - `blueprint.md`: 프로젝트의 설계, 기능, 구조를 기록하는 청사진 파일 (현재 파일).
 
 ## 5. 현재 작업 계획: 소개 페이지 도입
