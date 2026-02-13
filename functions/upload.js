@@ -1,12 +1,12 @@
 import { Resend } from 'resend';
 
-// Resend 클라이언트 초기화
-const resend = new Resend('re_Ud4GyioG_vTTr3KHQVTEtj9tEMNyWCx6h');
-
 /**
  * /upload 엔드포인트에 대한 POST 요청을 처리합니다.
  */
 export async function onRequestPost(context) {
+  // Resend 클라이언트를 함수 내에서 초기화하여 context의 환경 변수에 접근합니다.
+  const resend = new Resend(context.env.RESEND_API_KEY);
+
   try {
     const formData = await context.request.formData();
     const resumeFile = formData.get('resumeFile');
@@ -24,8 +24,8 @@ export async function onRequestPost(context) {
 
     // --- 1. 관리자에게 알림 이메일 발송 ---
     await resend.emails.send({
-      from: 'Self-DUO-CU <lawlife.ucg@gmail.com>', // 인증된 주소로 변경
-      to: ['lawlife.ucg@gmail.com'], // 개발자님 이메일 주소
+      from: 'Self-DUO-CU <onboarding@resend.dev>',
+      to: ['lawlife.ucg@gmail.com'],
       subject: `[Self-DUO-CU] 새로운 자소서가 도착했습니다! (${userEmail})`,
       html: `
         <h1>새로운 자소서 제출</h1>
@@ -42,8 +42,9 @@ export async function onRequestPost(context) {
 
     // --- 2. 사용자에게 접수 확인 이메일 발송 ---
     await resend.emails.send({
-      from: 'Self-DUO-CU <lawlife.ucg@gmail.com>', // 인증된 개발자님 이메일 주소
-      to: [userEmail], // 사용자 이메일 주소
+      from: 'Self-DUO-CU <onboarding@resend.dev>',
+      to: [userEmail],
+      reply_to: 'lawlife.ucg@gmail.com',
       subject: '[Self-DUO-CU] 자소서가 성공적으로 접수되었습니다.',
       html: `
         <h1>접수 확인</h1>
