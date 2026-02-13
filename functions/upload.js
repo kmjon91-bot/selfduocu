@@ -62,7 +62,7 @@ export async function onRequestPost(context) {
         const SENDGRID_API_KEY = "YOUR_SENDGRID_API_KEY_HERE";
 
         // 2. 이력서를 받을 관리자 이메일 주소입니다.
-        const ADMIN_EMAIL = "your-admin-email@example.com";
+        const ADMIN_EMAIL = "lawlife.ucg@gmail.com";
 
         // 3. 이메일을 보낼 때 사용할 발신자 이메일 주소입니다.
         // 이 주소는 SendGrid에서 "인증된 발신자"로 등록되어 있어야 합니다.
