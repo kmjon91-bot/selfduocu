@@ -112,6 +112,9 @@ body {
     height: 200%;
     background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 70%);
     animation: pulse 10s infinite ease-in-out;
+    /* ▼▼▼ FINAL FIX: Prevent this element from capturing mouse events ▼▼▼ */
+    pointer-events: none;
+    /* ▲▲▲ FINAL FIX END ▲▲▲ */
 }
 
 @keyframes pulse {
@@ -126,6 +129,8 @@ body {
     line-height: 1.2;
     margin-bottom: 1.5rem;
     text-shadow: 0 5px 25px var(--shadow-color);
+    position: relative; /* Ensure text is above the ::before pseudo-element */
+    z-index: 1;
 }
 
 .highlight-text {
@@ -139,6 +144,8 @@ body {
     max-width: 700px;
     margin: 0 auto 2.5rem;
     opacity: 0.9;
+    position: relative; /* Ensure text is above the ::before pseudo-element */
+    z-index: 1;
 }
 
 .cta-button {
@@ -150,10 +157,8 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    /* ▼▼▼ BUG FIX: Add positioning context to ensure button is clickable ▼▼▼ */
-    position: relative;
-    z-index: 2;
-    /* ▲▲▲ BUG FIX END ▲▲▲ */
+    position: relative; /* Keep for stacking context, useful for children elements */
+    z-index: 1;
 }
 
 .cta-button.primary {
@@ -173,6 +178,9 @@ body {
     padding: 1.2rem 3rem;
     font-size: 1.2rem;
 }
+
+/* ... (Rest of the CSS is the same) ... */
+
 
 /* --- Features Section --- */
 .features-grid {
