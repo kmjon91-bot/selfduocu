@@ -112,9 +112,7 @@ body {
     height: 200%;
     background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 70%);
     animation: pulse 10s infinite ease-in-out;
-    /* ▼▼▼ FINAL FIX: Prevent this element from capturing mouse events ▼▼▼ */
     pointer-events: none;
-    /* ▲▲▲ FINAL FIX END ▲▲▲ */
 }
 
 @keyframes pulse {
@@ -129,7 +127,7 @@ body {
     line-height: 1.2;
     margin-bottom: 1.5rem;
     text-shadow: 0 5px 25px var(--shadow-color);
-    position: relative; /* Ensure text is above the ::before pseudo-element */
+    position: relative;
     z-index: 1;
 }
 
@@ -144,10 +142,11 @@ body {
     max-width: 700px;
     margin: 0 auto 2.5rem;
     opacity: 0.9;
-    position: relative; /* Ensure text is above the ::before pseudo-element */
+    position: relative;
     z-index: 1;
 }
 
+/* --- Button Styles --- */
 .cta-button {
     font-family: var(--font-primary);
     text-decoration: none;
@@ -156,16 +155,18 @@ body {
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    position: relative; /* Keep for stacking context, useful for children elements */
+    position: relative;
     z-index: 1;
+    border: 1px solid transparent;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
 }
 
 .cta-button.primary {
     background: linear-gradient(45deg, var(--accent-color), #ffcc70);
     color: var(--text-color-dark);
-    padding: 1rem 2.5rem;
-    font-size: 1.1rem;
     box-shadow: 0 10px 30px rgba(247, 160, 114, 0.3);
 }
 
@@ -174,13 +175,21 @@ body {
     box-shadow: 0 15px 40px rgba(247, 160, 114, 0.4);
 }
 
+.cta-button.secondary {
+    background: transparent;
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.cta-button.secondary:hover {
+    background: var(--accent-color);
+    color: var(--text-color-dark);
+}
+
 .cta-button.large {
     padding: 1.2rem 3rem;
     font-size: 1.2rem;
 }
-
-/* ... (Rest of the CSS is the same) ... */
-
 
 /* --- Features Section --- */
 .features-grid {
@@ -216,19 +225,6 @@ body {
     margin-bottom: 1rem;
 }
 
-/* --- Ad Placeholder --- */
-.ad-placeholder {
-    background: rgba(0,0,0,0.2);
-    min-height: 100px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255,255,255,0.3);
-    font-weight: bold;
-    border: 1px dashed var(--border-color);
-}
-
 /* --- Process Section --- */
 .process-section {
     background: rgba(0,0,0,0.1);
@@ -260,17 +256,95 @@ body {
     color: var(--accent-color);
 }
 
-.step-title {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+/* --- Pricing Section --- */
+.pricing-section {
+    background: var(--bg-color-dark);
+    padding: 4rem 0;
 }
 
-.process-arrow {
-    font-size: 2.5rem;
-    color: var(--accent-color);
-    margin-top: 50px;
-    opacity: 0.5;
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
+
+.pricing-card {
+    background: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-card.premium {
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 10px 40px rgba(247, 160, 114, 0.2);
+}
+
+.popular-badge {
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    background: var(--accent-color);
+    color: var(--text-color-dark);
+    padding: 5px 30px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transform: rotate(45deg);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.pricing-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.pricing-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+}
+
+.pricing-features {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 2.5rem;
+    flex-grow: 1;
+}
+
+.pricing-features li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.pricing-features i {
+    color: var(--accent-color);
+    margin-right: 1rem;
+}
+
+.pricing-features li.dimmed {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.pricing-features li.dimmed i {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.pricing-card .cta-button {
+    width: 100%;
+}
+
 
 /* --- Testimonials Section --- */
 .testimonial-grid {
@@ -287,22 +361,6 @@ body {
     font-style: italic;
 }
 
-.testimonial-text::before {
-    content: '\201C';
-    font-size: 4rem;
-    color: var(--accent-color);
-    position: absolute;
-    opacity: 0.3;
-    transform: translate(-25px, -20px);
-}
-
-.testimonial-author {
-    text-align: right;
-    margin-top: 1.5rem;
-    font-weight: 600;
-    color: var(--accent-color);
-    font-style: normal;
-}
 
 /* --- Final CTA Section --- */
 .final-cta-section {
@@ -317,27 +375,6 @@ body {
     background: var(--bg-color-dark);
 }
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0;
-}
-
-.footer-left .logo { margin-bottom: 0.5rem; }
-.copyright { font-size: 0.9rem; opacity: 0.7; }
-
-.footer-right {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-}
-
-.footer-nav a {
-    color: var(--text-color-light);
-    text-decoration: none;
-    margin-left: 1.5rem;
-}
 
 /* --- App.html Specific Styles --- */
 #submission-form {
@@ -347,120 +384,6 @@ body {
     padding: 3rem;
     max-width: 800px;
     margin: 2rem auto;
-}
-
-#submission-form h2 {
-    text-align: center;
-    font-family: var(--font-display);
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-#submission-form .subtitle {
-    text-align: center;
-    margin-bottom: 2.5rem;
-    opacity: 0.8;
-}
-
-.form-group {
-    margin-bottom: 2rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.8rem;
-    font-weight: 500;
-}
-
-.form-group input[type="file"],
-.form-group input[type="email"] {
-    width: 100%;
-    padding: 1rem;
-    background: rgba(0,0,0,0.2);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    color: var(--text-color-light);
-    font-family: var(--font-primary);
-    font-size: 1rem;
-}
-
-.form-group input[type="file"]::-webkit-file-upload-button {
-    background: var(--accent-color);
-    border: none;
-    padding: 0.8rem 1rem;
-    border-radius: 8px;
-    color: var(--text-color-dark);
-    font-weight: 600;
-    cursor: pointer;
-    margin-right: 1rem;
-}
-
-#submission-form .cta-button {
-    width: 100%;
-    padding: 1.2rem;
-    font-size: 1.2rem;
-    justify-content: center;
-}
-
-.form-notice {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: rgba(0,0,0,0.15);
-    border-left: 4px solid var(--accent-color);
-    border-radius: 8px;
-    font-size: 0.9rem;
-    opacity: 0.9;
-}
-
-/* --- KakaoTalk Contact Section (app.html) --- */
-.kakao-contact-section {
-    text-align: center;
-    padding: 4rem 0;
-    margin-top: 3rem;
-    border-top: 1px solid var(--border-color);
-}
-
-.kakao-title {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.4;
-    margin-bottom: 1rem;
-    color: var(--text-color-light);
-}
-
-.kakao-subtitle {
-    font-size: 1.1rem;
-    opacity: 0.8;
-    margin-bottom: 2.5rem;
-}
-
-.kakao-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-    background-color: #FEE500; 
-    color: #191919; 
-    font-family: var(--font-primary);
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-decoration: none;
-    padding: 1rem 2.5rem;
-    border-radius: 12px;
-    border: none;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.kakao-button i {
-    font-size: 1.3rem;
-}
-
-.kakao-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(254, 229, 0, 0.3); 
-    background-color: #FFD900;
 }
 
 /* --- FAQ Section --- */
@@ -486,10 +409,6 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.faq-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
 .faq-question {
     font-family: var(--font-display);
     font-size: 1.3rem;
@@ -498,94 +417,13 @@ body {
     margin-bottom: 1rem;
 }
 
-.faq-answer {
-    font-size: 1rem;
-    opacity: 0.9;
-    line-height: 1.8;
-}
-
-.faq-answer strong {
-    color: var(--text-color-light);
-    font-weight: 600;
-}
-
-
 /* --- Responsive Design --- */
 @media (max-width: 992px) {
-    .container { padding: 3rem 0; }
-    .hero-title { font-size: 3.2rem; }
-    .section-title { font-size: 2.5rem; }
+    .pricing-grid { grid-template-columns: 1fr; }
     .testimonial-grid { grid-template-columns: 1fr; }
-    .process-steps { flex-direction: column; align-items: center; }
-    .process-arrow { transform: rotate(90deg); margin: 1.5rem 0; }
-    #submission-form { padding: 2.5rem; }
 }
 
 @media (max-width: 768px) {
-    body { line-height: 1.6; }
-    .container { width: 92%; padding: 2.5rem 0; }
-    .main-header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem 5%;
-    }
-    .main-nav {
-        margin-top: 0.5rem;
-    }
-    .main-nav a {
-        display: block;
-        margin: 0.5rem 0;
-        margin-left: 0;
-    }
-    .hero-section { padding-top: 180px; }
-    .hero-title { font-size: 2.5rem; }
-    .hero-subtitle { font-size: 1.1rem; }
-    .cta-button.primary { padding: 0.9rem 2rem; font-size: 1rem; }
-    .features-grid { grid-template-columns: 1fr; }
-    .feature-card { padding: 2rem; }
-    .footer-container { 
-        flex-direction: column; 
-        text-align: center;
-        gap: 1.5rem; 
-    }
-    .footer-right { 
-        flex-direction: column; 
-        gap: 1rem; 
-        align-items: center;
-    }
-    .footer-nav a { margin: 0; }
-    #submission-form { padding: 2rem; }
-    #submission-form h2 { font-size: 2rem; }
-    .form-notice { padding: 1rem; }
-    .kakao-title { font-size: 1.6rem; }
-    .kakao-subtitle { font-size: 1rem; }
-    .kakao-button { font-size: 1.1rem; padding: 0.9rem 2rem; }
-    .faq-grid { padding: 0 1rem; }
-    .faq-item { padding: 1.5rem; }
-    .faq-question { font-size: 1.15rem; }
-    .faq-answer { font-size: 0.95rem; }
-}
-
-@media (max-width: 480px) {
-    .container { padding: 2rem 0; }
-    .section-title { font-size: 2rem; }
-    .hero-title { font-size: 2.1rem; }
-    .hero-subtitle { font-size: 1rem; }
-    .hero-section { padding-top: 160px; }
-    .main-header {
-        align-items: center;
-    }
-    .main-nav {
-        text-align: center;
-        width: 100%;
-    }
-    .main-nav a {
-        margin-bottom: 0.25rem;
-    }
-    .step-number { width: 50px; height: 50px; font-size: 1.5rem; }
-    .step-title { font-size: 1.2rem; }
-    .testimonial-text::before { font-size: 3rem; transform: translate(-15px, -15px); }
-    #submission-form { padding: 1.5rem; }
-    #submission-form h2 { font-size: 1.8rem; }
-    .kakao-title { font-size: 1.4rem; }
+    .main-nav a { display: block; margin: 0.5rem 0; }
+    .pricing-grid { max-width: 100%; }
 }
