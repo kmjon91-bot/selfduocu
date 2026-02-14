@@ -34,7 +34,6 @@ body {
     color: var(--text-color-light);
     line-height: 1.7;
     overflow-x: hidden;
-    /* Premium noise texture */
     background-image: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%),
                       url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23000000" width="100" height="100"/><g fill-opacity="0.1"><rect x="50" width="50" height="50"/><rect y="50" width="50" height="50"/></g></svg>');
     background-blend-mode: overlay;
@@ -94,7 +93,7 @@ body {
 
 /* --- Hero Section --- */
 .hero-section {
-    padding-top: 150px; /* Offset for fixed header */
+    padding-top: 150px;
     text-align: center;
     min-height: 80vh;
     display: flex;
@@ -151,6 +150,10 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    /* ▼▼▼ BUG FIX: Add positioning context to ensure button is clickable ▼▼▼ */
+    position: relative;
+    z-index: 2;
+    /* ▲▲▲ BUG FIX END ▲▲▲ */
 }
 
 .cta-button.primary {
@@ -429,8 +432,8 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0.8rem;
-    background-color: #FEE500; /* Kakao's official brand color */
-    color: #191919; /* Text color for Kakao buttons */
+    background-color: #FEE500; 
+    color: #191919; 
     font-family: var(--font-primary);
     font-size: 1.2rem;
     font-weight: 600;
@@ -448,7 +451,7 @@ body {
 
 .kakao-button:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(254, 229, 0, 0.3); /* Glow effect with Kakao color */
+    box-shadow: 0 8px 25px rgba(254, 229, 0, 0.3); 
     background-color: #FFD900;
 }
 
