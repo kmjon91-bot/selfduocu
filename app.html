@@ -1,45 +1,63 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600&display=swap" rel="stylesheet">
-  <title>AI 자소서: 당신의 커리어를 한 단계 위로</title>
-  <link href='/style.css' rel='stylesheet'>
-  <style>
-    .form-notice {
-      font-size: 0.9rem;
-      color: #666;
-      margin-top: 15px;
-      line-height: 1.5;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI 자소서 점검 및 분석</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <meta name="google-adsense-account" content="ca-pub-3079062910746405">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3079062910746405"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>AI 자소서: 당신의 커리어를 한 단계 위로</h1>
-  </header>
-  <main>
-    <section id="submission-form">
-      <h2>자소서 업로드 및 분석</h2>
-      <form id="resume-form" enctype="multipart/form-data">
-        <div class="form-group">
-          <label for="resume-file">분석할 자소서 파일을 올려주세요 (PDF, DOCX, HWP):</label>
-          <input type="file" id="resume-file" name="resumeFile" accept=".pdf,.doc,.docx,.hwp" required>
+
+    <header class="ad-container-header">
+        <!-- AdSense: 상단 배너 광고 영역 -->
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="submission-form">
+                <h2>자소서 업로드 및 분석</h2>
+                <p class="subtitle">이력서나 자기소개서 파일을 제출하시면, 전문가가 직접 검토 후 핵심 피드백을 이메일로 보내드립니다.</p>
+
+                <form id="resume-form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="resume-file">분석할 자소서 파일을 올려주세요 (PDF, DOCX, HWP):</label>
+                        <input type="file" id="resume-file" name="resumeFile" accept=".pdf,.doc,.docx,.hwp" required>
+                    </div>
+
+                    <!-- AdSense: 폼 중간에 삽입될 광고 영역 -->
+                    <aside class="ad-container-in-form">
+                        <!-- 구글 자동 광고가 이 영역에 사각형 광고 등을 삽입할 수 있습니다. -->
+                    </aside>
+
+                    <div class="form-group">
+                        <label for="user-email">피드백 받을 이메일 (필수):</label>
+                        <input type="email" id="user-email" name="userEmail" placeholder="예: example@email.com" required>
+                    </div>
+
+                    <button type="submit" class="cta-button">무료 점검 받기</button>
+                </form>
+
+                <div id="message-area" role="status" aria-live="polite"></div>
+                
+                <div class="form-notice">
+                    <p>
+                        <b>개인정보 보호 안내:</b> 제출 전, 자소서의 민감한 개인정보(주민등록번호, 주소 등)는 반드시 삭제해주세요. 제출된 파일은 피드백 전송 후 즉시 파기되며 별도로 저장되지 않습니다.
+                    </p>
+                </div>
+            </section>
         </div>
-        <div class="form-group">
-          <label for="user-email">이메일 (필수 사항):</label>
-          <input type="email" id="user-email" name="userEmail" placeholder="분석 결과를 받을 이메일을 입력하세요" required>
-        </div>
-        <button type="submit">분석 시작하기</button>
-      </form>
-      <div id="message-area" role="status" aria-live="polite"></div>
-      <p class="form-notice">
-        간단한 점검 의견이 회신됩니다. 플랫폼 상위 1% 전문가가 직접 점검합니다.<br>
-        <b>개인정보 안내:</b> 제출 전, 자소서의 민감한 개인정보(주민번호, 주소 등)는 삭제해주세요. 제출된 파일은 분석 후 즉시 파기되며 별도로 저장되지 않습니다.
-      </p>
-    </section>
-  </main>
-  <script defer type="text/javascript" src="/main.js"></script>
+    </main>
+
+    <footer class="ad-container-footer">
+        <p>&copy; 2024 SelfDu.cu. All rights reserved.</p>
+        <!-- AdSense: 하단 배너 광고 영역 -->
+    </footer>
+
+    <script defer type="text/javascript" src="/main.js"></script>
 </body>
 </html>

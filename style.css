@@ -1,210 +1,210 @@
-/* Root Variables for easier theme management */
+/* --- Root Variables --- */
 :root {
-    --primary-color: #4CAF50; /* Green */
-    --secondary-color: #607D8B; /* Blue Grey */
+    --primary-color: #6e45ff;
+    --secondary-color: #f0f0f0;
     --text-color: #333;
-    --light-background: #e8f5e9; /* Light green background */
+    --bg-color: #f9f9f9;
     --white: #ffffff;
     --grey-border: #ddd;
-    --shadow-light: rgba(0, 0, 0, 0.1);
-    --shadow-medium: rgba(0, 0, 0, 0.2);
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --shadow-medium: rgba(0, 0, 0, 0.1);
+    --noise-opacity: 0.04;
 }
 
-/* General Body Styles */
+/* --- General Body Styles --- */
 body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
+    font-family: 'Noto Sans KR', 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: var(--light-background);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--bg-color);
     color: var(--text-color);
+    /* Subtle noise texture for a premium feel */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23f9f9f9" width="100" height="100"/><g fill-opacity="' + var(--noise-opacity) + '" fill="%236e45ff"><rect x="50" width="50" height="50"/><rect y="50" width="50" height="50"/></g></svg>');
+}
+
+/* --- Main Content & Container --- */
+main {
+    flex: 1;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Align items to the start to push header up */
-    min-height: 100vh;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    align-items: center;
+    padding: 2rem;
 }
 
-/* Header Styles */
-header {
-    background: var(--primary-color);
-    color: var(--white);
-    padding: 1.5rem 0;
+.container {
     text-align: center;
-    width: 100%; /* Full width header */
-    box-shadow: 0 2px 4px var(--shadow-medium);
-    position: fixed; /* Keep header at top */
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
-
-header h1 {
-    margin: 0;
-    font-weight: 600; /* Poppins semi-bold */
-    font-size: 2.2rem;
-}
-
-/* Main Content Area */
-main {
-    padding: 30px;
-    max-width: 600px;
+    padding: 2.5rem;
+    max-width: 750px;
     width: 100%;
-    margin-top: 120px; /* Space for fixed header */
-    margin-bottom: 30px; /* Space at the bottom */
-    background: var(--white);
-    box-shadow: 0 5px 15px var(--shadow-medium);
-    border-radius: 12px;
-    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Section Styling */
-section {
-    margin-bottom: 30px;
-}
-
-section h2 {
+/* --- Typography --- */
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
     color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 10px;
-    margin-bottom: 25px;
-    font-weight: 400; /* Poppins regular */
-    font-size: 1.8rem;
-    text-align: center;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 5px rgba(110, 69, 255, 0.2);
 }
 
-/* Form Grouping */
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+p.subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* --- Buttons --- */
+.cta-button {
+    background: linear-gradient(45deg, var(--primary-color), #8a6dff);
+    color: white;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(110, 69, 255, 0.4);
+    display: inline-block;
+}
+
+.cta-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(110, 69, 255, 0.5);
+}
+ 
+.cta-button:active {
+    transform: translateY(0);
+}
+
+/* --- Forms --- */
+#submission-form form {
+    margin-top: 2rem;
+}
+
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
+    text-align: left;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
-    font-weight: 400;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
     color: var(--text-color);
-    font-size: 1.1rem;
 }
 
-.form-group input[type="file"],
-.form-group input[type="email"] {
+.form-group input {
     width: 100%;
-    padding: 12px;
+    padding: 0.8rem 1rem;
     border: 1px solid var(--grey-border);
     border-radius: 8px;
-    box-sizing: border-box;
     font-size: 1rem;
-    box-shadow: inset 0 1px 3px var(--shadow-light);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
 }
 
-.form-group input[type="file"]:focus,
-.form-group input[type="email"]:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
-    outline: none;
-}
-
-.form-group input[type="file"] {
-    padding: 10px; /* Adjust padding for file input */
-}
-
-/* Button Styling */
-button[type="submit"] {
-    display: block;
-    width: 100%;
-    padding: 15px 20px;
-    background: var(--primary-color);
-    color: var(--white);
-    border: none;
+.form-notice {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 2rem;
+    line-height: 1.6;
+    text-align: left;
+    background-color: #f5f5f5;
+    padding: 1rem;
     border-radius: 8px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px var(--shadow-medium);
 }
 
-button[type="submit"]:hover {
-    background: #45a049; /* Slightly darker green */
-    box-shadow: 0 6px 12px var(--shadow-medium);
+/* --- AdSense Placeholder Styles --- */
+.ad-container-header, .ad-container-footer {
+    width: 100%;
+    min-height: 90px; /* Common banner height */
+    background-color: rgba(0, 0, 0, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: #999;
+    border-bottom: 1px solid #eee;
 }
 
-button[type="submit"]:active {
-    background: #39843c; /* Even darker on click */
-    box-shadow: 0 2px 4px var(--shadow-light);
+.ad-container-footer {
+    border-top: 1px solid #eee;
+    border-bottom: none;
 }
 
-/* Message Area for Feedback */
+.ad-container-footer p {
+    margin: 0;
+}
+
+.ad-container-in-form {
+    min-height: 150px; /* Placeholder for medium rectangle or similar */
+    background-color: rgba(0, 0, 0, 0.03);
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* --- Message Area --- */
 #message-area {
-    margin-top: 30px;
-    padding: 15px;
+    margin-top: 1rem;
+    padding: 1rem;
     border-radius: 8px;
     text-align: center;
-    min-height: 20px; /* Ensure it has some height even when empty */
-    font-size: 1.1rem;
-    font-weight: 400;
-    box-shadow: 0 2px 5px var(--shadow-light);
+    font-weight: 500;
+    display: none; /* Hidden by default */
 }
 
-.message-area.success {
-    background: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+#message-area.success {
+    background-color: #e6ffed;
+    color: #2b6b3e;
+    display: block;
 }
 
-.message-area.error {
-    background: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+#message-area.error {
+    background-color: #ffe6e6;
+    color: #8b2b2b;
+    display: block;
 }
 
-/* Responsive Design */
+.contact-section {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.contact-section p {
+    margin: 0.5rem 0;
+}
+
+/* --- Responsive Design --- */
 @media (max-width: 768px) {
-    main {
-        margin-top: 100px;
-        padding: 20px;
-        border-radius: 0; /* Full width on smaller screens */
-        box-shadow: none;
+    h1 {
+        font-size: 2.5rem;
     }
 
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    section h2 {
-        font-size: 1.5rem;
-    }
-
-    button[type="submit"] {
-        font-size: 1rem;
-        padding: 12px 15px;
-    }
-
-    .form-group label {
-        font-size: 1rem;
-    }
-
-    .form-group input {
-        padding: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        padding: 1rem 0;
-    }
-
-    main {
-        margin-top: 80px;
-        padding: 15px;
-    }
-
-    header h1 {
-        font-size: 1.5rem;
-    }
-
-    section h2 {
-        font-size: 1.3rem;
+    .container {
+        padding: 1.5rem;
     }
 }
