@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI 자소서 점검 및 분석 - SelfDu.cu</title>
+    <title>AI 자소서 무료 점검 및 분석 - SelfDu.cu</title>
 
     <!-- SEO Meta Tags -->
     <meta name="description" content="AI로 작성한 자기소개서를 전문가에게 무료로 점검받으세요. 이력서, 자소서 파일을 업로드하고 24시간 내에 전문적인 피드백을 이메일로 받아보세요.">
@@ -11,18 +11,47 @@
     <meta name="google-site-verification" content="he8xgxEdXcHl_HkT2rLzjQFI8UNToQVFjPk6SHMrAFI" />
     <meta name="naver-site-verification" content="2cac4620e4d14f2a3ac8db85896f08adc4717747" />
 
+    <!-- ▼▼▼ SEO & Sharing ENHANCEMENT START ▼▼▼ -->
+    <link rel="canonical" href="https://selfdu.cu/app.html" />
+
     <!-- Open Graph (for social media sharing) -->
     <meta property="og:title" content="AI 자소서 무료 점검 및 분석 - SelfDu.cu">
     <meta property="og:description" content="AI 자소서를 전문가에게 무료로 점검받고 합격률을 높여보세요. 지금 바로 파일을 업로드하고 피드백을 받아보세요.">
     <meta property="og:type" content="website">
-    <!-- <meta property="og:image" content="[Your Website URL]/images/og-app-image.png"> -->
-    <!-- <meta property="og:url" content="[Your Website URL]/app.html"> -->
+    <meta property="og:url" content="https://selfdu.cu/app.html">
+    <meta property="og:image" content="https://selfdu.cu/images/og-app-image.png"> <!-- Note: Replace with actual image URL -->
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI 자소서 무료 점검 및 분석 - SelfDu.cu">
     <meta name="twitter:description" content="AI 자소서를 전문가에게 무료로 점검받고 합격률을 높여보세요. 지금 바로 파일을 업로드하고 피드백을 받아보세요.">
-    <!-- <meta name="twitter:image" content="[Your Website URL]/images/og-app-image.png"> -->
+    <meta name="twitter:image" content="https://selfdu.cu/images/og-app-image.png"> <!-- Note: Replace with actual image URL -->
+
+    <!-- JSON-LD for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "자기소개서 첨삭 서비스",
+      "provider": {
+        "@type": "Organization",
+        "name": "SelfDu.cu"
+      },
+      "name": "AI 자소서 무료 점검 및 전문가 분석",
+      "description": "AI로 작성된 자기소개서 초안을 전문가가 직접 검토하여 24시간 내에 강점 발굴, 논리 구조, 표현법 등 핵심 피드백을 무료로 제공하는 서비스입니다.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "KR"
+      },
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "KRW"
+      }
+    }
+    </script>
+    <!-- ▲▲▲ SEO & Sharing ENHANCEMENT END ▲▲▲ -->
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -34,15 +63,19 @@
 </head>
 <body>
 
-    <header class="ad-container-header">
-        <!-- AdSense: 상단 배너 광고 영역 -->
-    </header>
+    <header class="ad-container-header"></header>
 
     <main>
         <div class="container">
             <section id="submission-form">
-                <h2>자소서 업로드 및 분석</h2>
-                <p class="subtitle">이력서나 자기소개서 파일을 제출하시면, 전문가가 직접 검토 후 핵심 피드백을 이메일로 보내드립니다.</p>
+                <!-- ▼▼▼ SEO & CRO ENHANCEMENT START ▼▼▼ -->
+                <h1>AI 자소서 무료 점검 및 분석</h1>
+                <div class="trust-factors">
+                    <span><i class="fas fa-clock"></i> 24시간 내 전문가 직접 피드백</span>
+                    <span><i class="fas fa-shield-alt"></i> 제출 파일 즉시 영구 파기</span>
+                </div>
+                <p class="subtitle">AI가 놓친 합격의 결정적 단서, 현직 전문가가 찾아드립니다.<br>이력서나 자기소개서 파일을 제출하시면, 핵심 피드백을 이메일로 보내드립니다.</p>
+                <!-- ▲▲▲ SEO & CRO ENHANCEMENT END ▲▲▲ -->
 
                 <form id="resume-form" enctype="multipart/form-data">
                     <div class="form-group">
@@ -50,17 +83,16 @@
                         <input type="file" id="resume-file" name="resumeFile" accept=".pdf,.doc,.docx,.hwp" required>
                     </div>
 
-                    <!-- AdSense: 폼 중간에 삽입될 광고 영역 -->
-                    <aside class="ad-container-in-form">
-                        <!-- 구글 자동 광고가 이 영역에 사각형 광고 등을 삽입할 수 있습니다. -->
-                    </aside>
+                    <aside class="ad-container-in-form"></aside>
 
                     <div class="form-group">
                         <label for="user-email">피드백 받을 이메일 (필수):</label>
                         <input type="email" id="user-email" name="userEmail" placeholder="예: example@email.com" required>
                     </div>
 
-                    <button type="submit" class="cta-button">무료 점검 받기</button>
+                     <!-- ▼▼▼ CRO ENHANCEMENT: Added aria-label ▼▼▼ -->
+                    <button type="submit" class="cta-button" aria-label="작성한 자기소개서 제출하고 무료 점검 받기">무료 점검 받기</button>
+                    <!-- ▲▲▲ CRO ENHANCEMENT END ▲▲▲ -->
                 </form>
 
                 <div id="message-area" role="status" aria-live="polite"></div>
@@ -73,7 +105,6 @@
             </section>
         </div>
 
-        <!-- KakaoTalk Contact Section -->
         <section class="kakao-contact-section">
             <div class="container">
                 <h3 class="kakao-title">궁금한 점이 있거나, 서비스 관련하여<br>빠른 상담이 필요하신가요?</h3>
@@ -85,11 +116,50 @@
             </div>
         </section>
 
+        <!-- ▼▼▼ SEO & Content ENHANCEMENT START: FAQ Section ▼▼▼ -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2 class="section-title">자주 묻는 질문 (FAQ)</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3 class="faq-question">Q. 무료 점검은 어디까지 봐주시나요? (점검 범위)</h3>
+                        <p class="faq-answer">
+                            SelfDu.cu의 무료 점검 서비스는 단순히 맞춤법이나 문법 오류를 교정하는 수준을 넘어섭니다. 현직 전문가는 제출된 자기소개서의 **전반적인 논리 구조, 직무 역량과의 연결성, 경험 기반 스토리텔링의 설득력**을 중심으로 분석합니다. AI가 파악하기 어려운 지원자의 잠재적 강점을 발굴하고, 이를 어떻게 더 매력적으로 표현할 수 있는지에 대한 '핵심 수정 방향'을 제시하는 데 집중합니다. 완전한 문장 재작성이나 대필은 포함되지 않지만, 무료 피드백만으로도 자소서의 퀄리티를 한 단계 업그레이드할 수 있는 구체적인 가이드를 얻으실 수 있습니다.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Q. 피드백은 정말 24시간 안에 오나요? (응답 시간)</h3>
+                        <p class="faq-answer">
+                            네, 그렇습니다. 파일 제출과 이메일 주소 입력을 완료하신 시점을 기준으로, 주말이나 공휴일 관계없이 **최대 24시간 이내**에 피드백을 보내드리는 것을 원칙으로 합니다. 이는 자동 분석이 아닌, 전문가가 직접 지원자의 자소서를 꼼꼼히 읽고 분석하는 데 필요한 최소한의 시간입니다. 서비스 신청이 집중되는 시간에는 최대 시간이 소요될 수 있으나, 최대한 신속하고 깊이 있는 분석을 제공하기 위해 노력하고 있습니다.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Q. AI 자소서 첨삭과 전문가 첨삭은 무엇이 다른가요?</h3>
+                        <p class="faq-answer">
+                           AI 자소서 첨삭은 정해진 데이터와 알고리즘을 기반으로 빠르고 일반적인 피드백을 제공하는 데 강점이 있습니다. 하지만 AI는 문맥상의 미묘한 뉘앙스나 지원자의 숨겨진 성장 가능성을 파악하는 데 한계가 있습니다. 반면, **전문가 첨삭**은 수많은 합격 및 불합격 자소서를 다뤄본 경험을 바탕으로 지원자의 경험에 담긴 '진짜 의미'를 해석하고, 이를 기업의 인재상과 직무에 맞춰 재구성합니다. 즉, AI가 '기술적 완성도'를 높인다면 전문가는 '인사담당자의 마음을 움직이는 설득력'을 더하는 역할을 합니다.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Q. 제출한 파일과 개인정보는 안전하게 처리되나요?</h3>
+                        <p class="faq-answer">
+                            개인정보 보호는 저희 서비스의 가장 중요한 원칙입니다. 제출해주신 자기소개서 파일과 이메일 주소는 **오직 피드백 전달의 목적**으로만 사용됩니다. 전문가가 분석을 마치고 피드백 메일을 발송한 즉시, 제출된 원본 파일은 저희 시스템에서 **지체 없이 영구적으로 파기**됩니다. 서버에 별도로 파일을 저장하거나 백업하지 않으므로, 개인정보 유출에 대해 안심하고 이용하셔도 좋습니다. 또한, 제출 전 주민등록번호, 상세 주소 등 민감 정보는 직접 삭제하시는 것을 권장합니다.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Q. 어떤 파일 형식(포맷)으로 제출해야 하나요?</h3>
+                        <p class="faq-answer">
+                            가장 보편적으로 사용되는 **PDF, MS Word (DOCX, DOC), 한컴오피스 한글 (HWP)** 형식의 파일을 모두 지원합니다. 어떤 형식으로 제출하셔도 분석은 가능하지만, 지원자가 작성한 원본의 레이아웃과 글꼴이 그대로 유지되는 **PDF 형식으로 제출하시는 것을 가장 권장**합니다. 다른 형식의 경우, 문서를 여는 환경에 따라 서식이 다르게 보일 수 있는 가능성이 있기 때문입니다. PDF로 변환하여 제출하시면, 지원자의 의도가 그대로 반영된 문서를 기반으로 가장 정확한 피드백을 드릴 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ▲▲▲ SEO & Content ENHANCEMENT END ▲▲▲ -->
+
     </main>
 
     <footer class="ad-container-footer">
         <p>&copy; 2024 SelfDu.cu. All rights reserved.</p>
-        <!-- AdSense: 하단 배너 광고 영역 -->
     </footer>
 
     <script defer type="text/javascript" src="main.js"></script>
